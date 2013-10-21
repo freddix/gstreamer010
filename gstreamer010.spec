@@ -3,7 +3,7 @@
 Summary:	GStreamer Streaming-media framework runtime
 Name:		gstreamer010
 Version:	0.10.36
-Release:	6
+Release:	7
 License:	LGPL
 Group:		Libraries
 Source0:	http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-%{version}.tar.xz
@@ -11,6 +11,7 @@ Source0:	http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-%{version}.tar
 Patch0:		%{name}-without_ps_pdf.patch
 Patch1:		%{name}-eps.patch
 Patch2:		%{name}-inspect-rpm-format.patch
+Patch3:		%{name}-bison.patch
 URL:		http://gstreamer.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -80,6 +81,7 @@ GStreamer API documentation.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p0
 
 %build
 %{__autopoint}
@@ -153,7 +155,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*-%{gst_major_ver}.so
-%{_libdir}/lib*-%{gst_major_ver}.la
 %{_aclocaldir}/gst-element-check-%{gst_major_ver}.m4
 %{gstincludedir}
 %{_pkgconfigdir}/*-%{gst_major_ver}.pc
