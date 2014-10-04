@@ -115,7 +115,8 @@ mv $RPM_BUILD_ROOT%{_docdir}/gstreamer-%{version}/{manual,pwg} \
 
 %find_lang gstreamer --all-name --with-gnome
 
-rm -f $RPM_BUILD_ROOT%{gstlibdir}/*.la
+%{__rm} $RPM_BUILD_ROOT%{gstlibdir}/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
